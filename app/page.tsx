@@ -58,10 +58,10 @@ interface RoomInfo {
 
 const ROOMS: RoomInfo[] = [
   {
-    id: "room-402",
-    name: "The Quantum Lab",
-    code: "CR-402",
-    floor: "4th Floor • West Wing",
+    id: "room-yamuna",
+    name: "Yamuna",
+    code: "CR-1301",
+    floor: "13th Floor • North Wing",
     building: "HQ Campus Alpha",
     capacity: 12,
     temp: "21.5°C",
@@ -76,10 +76,10 @@ const ROOMS: RoomInfo[] = [
     ],
   },
   {
-    id: "room-405",
-    name: "Apollo Executive Suite",
-    code: "CR-405",
-    floor: "4th Floor • East Wing",
+    id: "room-kaveri",
+    name: "Kaveri",
+    code: "CR-1302",
+    floor: "13th Floor • South Wing",
     building: "HQ Campus Alpha",
     capacity: 18,
     temp: "22.0°C",
@@ -92,10 +92,10 @@ const ROOMS: RoomInfo[] = [
     ],
   },
   {
-    id: "room-301",
-    name: "Nexus Huddle Pod",
-    code: "CR-301",
-    floor: "3rd Floor • Innovation Hub",
+    id: "room-sindhu",
+    name: "Sindhu",
+    code: "CR-1303",
+    floor: "13th Floor • North Wing",
     building: "HQ Campus Alpha",
     capacity: 6,
     temp: "20.8°C",
@@ -108,6 +108,8 @@ const ROOMS: RoomInfo[] = [
     ],
   },
 ];
+
+
 
 const INITIAL_SCHEDULE: Meeting[] = [
   {
