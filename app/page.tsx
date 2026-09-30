@@ -376,17 +376,22 @@ export default function MeetingRoomKiosk() {
     >
       {/* Decorative Halo - STRICTLY POINTER EVENTS NONE */}
       <div className={`absolute inset-0 pointer-events-none transition-all duration-700 ${statusTheme.rimGlow}`} />
+      
+      {/* Top Wall-Mount LED Status Lightbar */}
       <div
-        className={`absolute top-0 left-0 right-0 h-1 pointer-events-none transition-all duration-700 ${
+        className={`absolute top-0 left-0 right-0 h-4 pointer-events-none transition-all duration-700 z-50 rounded-b-sm ${
           roomStatus === "available"
-            ? "bg-emerald-500 shadow-[0_0_18px_rgba(16,185,129,0.9)]"
+            ? "bg-gradient-to-r from-emerald-600 via-emerald-400 to-emerald-600 shadow-[0_0_30px_rgba(16,185,129,1),0_0_12px_rgba(16,185,129,0.85)]"
             : roomStatus === "occupied"
-            ? "bg-red-600 shadow-[0_0_20px_rgba(239,68,68,1)]"
+            ? "bg-gradient-to-r from-red-700 via-red-500 to-red-700 shadow-[0_0_30px_rgba(239,68,68,1),0_0_12px_rgba(239,68,68,0.85)]"
             : roomStatus === "starting_soon"
-            ? "bg-amber-500 shadow-[0_0_18px_rgba(245,158,11,0.9)]"
-            : "bg-purple-500 shadow-[0_0_18px_rgba(168,85,247,0.9)]"
+            ? "bg-gradient-to-r from-amber-600 via-amber-400 to-amber-600 shadow-[0_0_30px_rgba(245,158,11,1),0_0_12px_rgba(245,158,11,0.85)]"
+            : "bg-gradient-to-r from-purple-700 via-purple-400 to-purple-700 shadow-[0_0_30px_rgba(168,85,247,1),0_0_12px_rgba(168,85,247,0.85)]"
         }`}
       />
+
+
+
 
       {/* Floating Interactive Toast */}
       {showToast && (
