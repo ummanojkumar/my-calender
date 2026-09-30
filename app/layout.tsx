@@ -35,13 +35,18 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} h-full w-full antialiased dark overflow-hidden`}
     >
-      <body className="h-full w-full flex flex-col bg-zinc-950 text-zinc-100 selection:bg-emerald-500/30 selection:text-emerald-200 overflow-hidden">
+      <body
+        suppressHydrationWarning
+        className="h-full w-full flex flex-col bg-zinc-950 text-zinc-100 selection:bg-emerald-500/30 selection:text-emerald-200 overflow-hidden"
+      >
         {children}
       </body>
     </html>
   );
 }
+
 
 

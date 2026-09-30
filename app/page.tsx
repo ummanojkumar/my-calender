@@ -213,7 +213,7 @@ export default function MeetingRoomKiosk() {
     }
   };
 
-  // Instant State Change function (called by both pointerDown and click for immediate touch response)
+  // State Switcher Function
   const handleSelectState = (newStatus: RoomStatus) => {
     setRoomStatus(newStatus);
     const label =
@@ -227,7 +227,7 @@ export default function MeetingRoomKiosk() {
     setShowToast(`Mode: ${label}`);
   };
 
-  // Cycle states helper (for tapping big status badge)
+  // Cycle states helper
   const cycleRoomState = () => {
     const states: RoomStatus[] = ["available", "occupied", "starting_soon", "private"];
     const nextIdx = (states.indexOf(roomStatus) + 1) % states.length;
@@ -308,7 +308,7 @@ export default function MeetingRoomKiosk() {
     setShowToast(`⏳ Session extended by +${mins}m.`);
   };
 
-  // Current active meeting data
+  // Current active meeting
   const currentMeeting = schedule.find((m) => m.status === "current") || {
     title: "Product Strategy & Architecture Review",
     host: "Manoj Kumar",
@@ -323,40 +323,40 @@ export default function MeetingRoomKiosk() {
     available: {
       bgGlow: "from-emerald-950/40 via-zinc-950 to-zinc-950",
       accent: "text-emerald-400",
-      badgeBg: "bg-emerald-500/20 border-emerald-500/50 text-emerald-300 shadow-[0_0_15px_rgba(16,185,129,0.3)]",
+      badgeBg: "bg-emerald-500/25 border-emerald-500/60 text-emerald-300 shadow-[0_0_15px_rgba(16,185,129,0.3)]",
       rimGlow: "shadow-[0_0_80px_rgba(16,185,129,0.15)]",
-      buttonBg: "bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 text-zinc-950 font-bold shadow-[0_0_25px_rgba(16,185,129,0.35)] active:scale-95",
-      chipBg: "bg-emerald-950/50 hover:bg-emerald-900/70 active:bg-emerald-800 border-emerald-500/40 text-emerald-200",
+      buttonBg: "bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 text-zinc-950 font-bold shadow-[0_0_25px_rgba(16,185,129,0.35)]",
+      chipBg: "bg-emerald-950/60 hover:bg-emerald-900 border-emerald-500/40 text-emerald-200",
       title: "AVAILABLE NOW",
       indicatorDot: "bg-emerald-400 shadow-[0_0_12px_rgba(52,211,153,1)]",
     },
     occupied: {
       bgGlow: "from-rose-950/50 via-zinc-950 to-zinc-950",
       accent: "text-rose-400",
-      badgeBg: "bg-rose-500/20 border-rose-500/50 text-rose-300 shadow-[0_0_15px_rgba(244,63,94,0.3)]",
+      badgeBg: "bg-rose-500/25 border-rose-500/60 text-rose-300 shadow-[0_0_15px_rgba(244,63,94,0.3)]",
       rimGlow: "shadow-[0_0_80px_rgba(244,63,94,0.15)]",
-      buttonBg: "bg-gradient-to-r from-rose-500 to-rose-600 hover:from-rose-400 hover:to-rose-500 text-white font-bold shadow-[0_0_25px_rgba(244,63,94,0.35)] active:scale-95",
-      chipBg: "bg-rose-950/50 hover:bg-rose-900/70 active:bg-rose-800 border-rose-500/40 text-rose-200",
+      buttonBg: "bg-gradient-to-r from-rose-500 to-rose-600 hover:from-rose-400 text-white font-bold shadow-[0_0_25px_rgba(244,63,94,0.35)]",
+      chipBg: "bg-rose-950/60 hover:bg-rose-900 border-rose-500/40 text-rose-200",
       title: "ROOM IN USE",
       indicatorDot: "bg-rose-500 shadow-[0_0_12px_rgba(244,63,94,1)]",
     },
     starting_soon: {
       bgGlow: "from-amber-950/45 via-zinc-950 to-zinc-950",
       accent: "text-amber-400",
-      badgeBg: "bg-amber-500/20 border-amber-500/50 text-amber-300 shadow-[0_0_15px_rgba(245,158,11,0.3)]",
+      badgeBg: "bg-amber-500/25 border-amber-500/60 text-amber-300 shadow-[0_0_15px_rgba(245,158,11,0.3)]",
       rimGlow: "shadow-[0_0_80px_rgba(245,158,11,0.15)]",
-      buttonBg: "bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-zinc-950 font-bold shadow-[0_0_25px_rgba(245,158,11,0.35)] active:scale-95",
-      chipBg: "bg-amber-950/50 hover:bg-amber-900/70 active:bg-amber-800 border-amber-500/40 text-amber-200",
+      buttonBg: "bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 text-zinc-950 font-bold shadow-[0_0_25px_rgba(245,158,11,0.35)]",
+      chipBg: "bg-amber-950/60 hover:bg-amber-900 border-amber-500/40 text-amber-200",
       title: "STARTING IN 6 MINS",
       indicatorDot: "bg-amber-400 shadow-[0_0_12px_rgba(251,191,36,1)]",
     },
     private: {
       bgGlow: "from-purple-950/45 via-zinc-950 to-zinc-950",
       accent: "text-purple-400",
-      badgeBg: "bg-purple-500/20 border-purple-500/50 text-purple-300 shadow-[0_0_15px_rgba(168,85,247,0.3)]",
+      badgeBg: "bg-purple-500/25 border-purple-500/60 text-purple-300 shadow-[0_0_15px_rgba(168,85,247,0.3)]",
       rimGlow: "shadow-[0_0_80px_rgba(168,85,247,0.15)]",
-      buttonBg: "bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-400 hover:to-purple-500 text-white font-bold shadow-[0_0_25px_rgba(168,85,247,0.35)] active:scale-95",
-      chipBg: "bg-purple-950/50 hover:bg-purple-900/70 active:bg-purple-800 border-purple-500/40 text-purple-200",
+      buttonBg: "bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-400 text-white font-bold shadow-[0_0_25px_rgba(168,85,247,0.35)]",
+      chipBg: "bg-purple-950/60 hover:bg-purple-900 border-purple-500/40 text-purple-200",
       title: "CONFIDENTIAL SESSION",
       indicatorDot: "bg-purple-400 shadow-[0_0_12px_rgba(192,132,252,1)]",
     },
@@ -372,12 +372,12 @@ export default function MeetingRoomKiosk() {
 
   return (
     <main
-      className={`h-screen max-h-screen w-screen max-w-screen bg-zinc-950 bg-gradient-to-br ${statusTheme.bgGlow} text-zinc-100 flex flex-col justify-between select-none relative overflow-hidden p-3 sm:p-4 lg:p-5 font-sans touch-manipulation`}
+      className={`h-screen max-h-screen w-screen max-w-screen bg-zinc-950 bg-gradient-to-br ${statusTheme.bgGlow} text-zinc-100 flex flex-col justify-between relative overflow-hidden p-3 sm:p-4 lg:p-5 font-sans touch-manipulation`}
     >
-      {/* Ambient Edge Halo Bars */}
+      {/* Decorative Halo - STRICTLY POINTER EVENTS NONE */}
       <div className={`absolute inset-0 pointer-events-none transition-all duration-700 ${statusTheme.rimGlow}`} />
       <div
-        className={`absolute top-0 left-0 right-0 h-1.5 transition-all duration-700 ${
+        className={`absolute top-0 left-0 right-0 h-1 pointer-events-none transition-all duration-700 ${
           roomStatus === "available"
             ? "bg-emerald-500 shadow-[0_0_18px_rgba(16,185,129,0.9)]"
             : roomStatus === "occupied"
@@ -398,16 +398,15 @@ export default function MeetingRoomKiosk() {
 
       {/* ======================= TOP HEADER BAR ======================= */}
       <header className="shrink-0 relative z-30 flex items-center justify-between pb-2 border-b border-zinc-800/80 gap-2">
-        {/* Room Branding & Metadata */}
+        {/* Room Info */}
         <div className="flex items-center gap-3">
           <div
-            onPointerDown={cycleRoomState}
             onClick={cycleRoomState}
-            className="w-11 h-11 rounded-xl bg-zinc-900/90 border border-zinc-700/60 flex items-center justify-center shadow relative cursor-pointer active:scale-90 touch-manipulation transition-transform"
+            className="w-11 h-11 rounded-xl bg-zinc-900 border border-zinc-700/80 flex items-center justify-center shadow relative cursor-pointer active:scale-95 touch-manipulation pointer-events-auto"
             title="Tap to cycle room state"
           >
             <Building2 className="w-5 h-5 text-zinc-300" />
-            <span className="absolute -bottom-0.5 -right-0.5 flex h-3.5 w-3.5">
+            <span className="absolute -bottom-0.5 -right-0.5 flex h-3.5 w-3.5 pointer-events-none">
               <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${statusTheme.indicatorDot}`} />
               <span className={`relative inline-flex rounded-full h-3.5 w-3.5 ${statusTheme.indicatorDot}`} />
             </span>
@@ -436,15 +435,14 @@ export default function MeetingRoomKiosk() {
           </div>
         </div>
 
-        {/* PROMINENT DEMO STATE SWITCHER PILLS (ALWAYS VISIBLE, INSTANT TOUCH RESPONSE) */}
-        <div className="flex items-center gap-1.5 bg-zinc-900/90 p-1 rounded-2xl border border-zinc-700 shadow-lg">
+        {/* PROMINENT DEMO STATE SWITCHER PILLS (DIRECT POINTER / CLICK HANDLERS) */}
+        <div className="flex items-center gap-1.5 bg-zinc-900 p-1.5 rounded-2xl border border-zinc-700 shadow-xl pointer-events-auto z-40">
           <button
             type="button"
-            onPointerDown={() => handleSelectState("available")}
             onClick={() => handleSelectState("available")}
-            className={`px-3 py-2 rounded-xl font-bold text-xs transition-all cursor-pointer touch-manipulation active:scale-90 select-none min-h-[42px] ${
+            className={`px-3.5 py-2 rounded-xl font-bold text-xs transition-all cursor-pointer touch-manipulation pointer-events-auto min-h-[44px] flex items-center gap-1 ${
               roomStatus === "available"
-                ? "bg-emerald-500 text-zinc-950 shadow-lg font-extrabold scale-105"
+                ? "bg-emerald-500 text-zinc-950 shadow-md font-extrabold"
                 : "text-zinc-300 hover:text-white hover:bg-zinc-800"
             }`}
           >
@@ -452,11 +450,10 @@ export default function MeetingRoomKiosk() {
           </button>
           <button
             type="button"
-            onPointerDown={() => handleSelectState("occupied")}
             onClick={() => handleSelectState("occupied")}
-            className={`px-3 py-2 rounded-xl font-bold text-xs transition-all cursor-pointer touch-manipulation active:scale-90 select-none min-h-[42px] ${
+            className={`px-3.5 py-2 rounded-xl font-bold text-xs transition-all cursor-pointer touch-manipulation pointer-events-auto min-h-[44px] flex items-center gap-1 ${
               roomStatus === "occupied"
-                ? "bg-rose-500 text-white shadow-lg font-extrabold scale-105"
+                ? "bg-rose-500 text-white shadow-md font-extrabold"
                 : "text-zinc-300 hover:text-white hover:bg-zinc-800"
             }`}
           >
@@ -464,11 +461,10 @@ export default function MeetingRoomKiosk() {
           </button>
           <button
             type="button"
-            onPointerDown={() => handleSelectState("starting_soon")}
             onClick={() => handleSelectState("starting_soon")}
-            className={`px-3 py-2 rounded-xl font-bold text-xs transition-all cursor-pointer touch-manipulation active:scale-90 select-none min-h-[42px] ${
+            className={`px-3.5 py-2 rounded-xl font-bold text-xs transition-all cursor-pointer touch-manipulation pointer-events-auto min-h-[44px] flex items-center gap-1 ${
               roomStatus === "starting_soon"
-                ? "bg-amber-500 text-zinc-950 shadow-lg font-extrabold scale-105"
+                ? "bg-amber-500 text-zinc-950 shadow-md font-extrabold"
                 : "text-zinc-300 hover:text-white hover:bg-zinc-800"
             }`}
           >
@@ -476,11 +472,10 @@ export default function MeetingRoomKiosk() {
           </button>
           <button
             type="button"
-            onPointerDown={() => handleSelectState("private")}
             onClick={() => handleSelectState("private")}
-            className={`px-3 py-2 rounded-xl font-bold text-xs transition-all cursor-pointer touch-manipulation active:scale-90 select-none min-h-[42px] ${
+            className={`px-3.5 py-2 rounded-xl font-bold text-xs transition-all cursor-pointer touch-manipulation pointer-events-auto min-h-[44px] flex items-center gap-1 ${
               roomStatus === "private"
-                ? "bg-purple-500 text-white shadow-lg font-extrabold scale-105"
+                ? "bg-purple-500 text-white shadow-md font-extrabold"
                 : "text-zinc-300 hover:text-white hover:bg-zinc-800"
             }`}
           >
@@ -497,21 +492,20 @@ export default function MeetingRoomKiosk() {
             <div className="text-[10px] font-medium text-zinc-400 mt-0.5">{dateFormatted}</div>
           </div>
 
+
           <div className="flex items-center gap-1.5">
             <button
               type="button"
-              onPointerDown={() => setShowQrModal(true)}
               onClick={() => setShowQrModal(true)}
-              className="p-2.5 rounded-xl bg-zinc-900 border border-zinc-700/80 hover:bg-zinc-800 text-zinc-300 hover:text-white transition-all shadow active:scale-95 cursor-pointer touch-manipulation min-h-[42px] min-w-[42px] flex items-center justify-center"
+              className="p-2.5 rounded-xl bg-zinc-900 border border-zinc-700 hover:bg-zinc-800 text-zinc-300 hover:text-white transition-all shadow cursor-pointer touch-manipulation pointer-events-auto min-h-[44px] min-w-[44px] flex items-center justify-center"
               title="Mobile QR Pass"
             >
               <QrCode className="w-4 h-4" />
             </button>
             <button
               type="button"
-              onPointerDown={toggleFullscreen}
               onClick={toggleFullscreen}
-              className="p-2.5 rounded-xl bg-zinc-900 border border-zinc-700/80 hover:bg-zinc-800 text-zinc-300 hover:text-white transition-all shadow active:scale-95 cursor-pointer touch-manipulation min-h-[42px] min-w-[42px] flex items-center justify-center"
+              className="p-2.5 rounded-xl bg-zinc-900 border border-zinc-700 hover:bg-zinc-800 text-zinc-300 hover:text-white transition-all shadow cursor-pointer touch-manipulation pointer-events-auto min-h-[44px] min-w-[44px] flex items-center justify-center"
               title="Toggle Fullscreen"
             >
               {isFullscreen ? <Minimize2 className="w-4 h-4" /> : <Maximize2 className="w-4 h-4" />}
@@ -520,23 +514,22 @@ export default function MeetingRoomKiosk() {
         </div>
       </header>
 
-      {/* ======================= MAIN BODY CONTENT (ZERO SCROLL) ======================= */}
+      {/* ======================= MAIN BODY (ZERO SCROLL) ======================= */}
       <div className="flex-1 min-h-0 grid grid-cols-1 lg:grid-cols-12 gap-3 my-2 overflow-hidden relative z-10">
-        {/* LEFT COLUMN: HERO STATUS & 1-TAP BOOKING (7 COLS) */}
-        <div className="lg:col-span-7 h-full flex flex-col justify-between bg-zinc-900/75 border border-zinc-800/90 backdrop-blur-2xl rounded-2xl p-4 sm:p-5 shadow-xl relative overflow-hidden">
+        {/* LEFT COLUMN: HERO STATUS & 1-TAP BOOKING */}
+        <div className="lg:col-span-7 h-full flex flex-col justify-between bg-zinc-900/80 border border-zinc-800/90 backdrop-blur-2xl rounded-2xl p-4 sm:p-5 shadow-xl relative overflow-hidden">
           {/* Subtle watermark */}
           <div className="absolute -right-8 -bottom-8 opacity-5 pointer-events-none">
             <Sparkles className="w-48 h-48 text-white" />
           </div>
 
           <div className="flex-1 min-h-0 flex flex-col justify-between">
-            {/* Live Status Badge (TOUCH TO CYCLE STATES) */}
+            {/* Live Status Badge */}
             <div className="flex items-center justify-between shrink-0">
               <button
                 type="button"
-                onPointerDown={cycleRoomState}
                 onClick={cycleRoomState}
-                className={`inline-flex items-center gap-2 px-3.5 py-2 rounded-full border text-xs font-bold tracking-wide uppercase transition-all cursor-pointer touch-manipulation active:scale-95 ${statusTheme.badgeBg}`}
+                className={`inline-flex items-center gap-2 px-4 py-2 rounded-full border text-xs font-bold tracking-wide uppercase transition-all cursor-pointer touch-manipulation pointer-events-auto active:scale-95 ${statusTheme.badgeBg}`}
                 title="Tap to cycle status"
               >
                 <span className={`w-2.5 h-2.5 rounded-full ${statusTheme.indicatorDot} animate-pulse`} />
@@ -557,7 +550,7 @@ export default function MeetingRoomKiosk() {
               )}
             </div>
 
-            {/* Dynamic Middle Section */}
+            {/* Dynamic Status View */}
             {roomStatus === "available" && (
               <div className="my-auto py-1">
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight leading-tight">
@@ -577,9 +570,8 @@ export default function MeetingRoomKiosk() {
                       <button
                         type="button"
                         key={mins}
-                        onPointerDown={() => handleQuickBook(mins)}
                         onClick={() => handleQuickBook(mins)}
-                        className={`py-3 px-2 rounded-xl border flex flex-col items-center justify-center transition-all duration-150 active:scale-95 shadow cursor-pointer touch-manipulation min-h-[56px] ${statusTheme.chipBg}`}
+                        className={`py-3 px-2 rounded-xl border flex flex-col items-center justify-center transition-all duration-150 active:scale-95 shadow cursor-pointer touch-manipulation pointer-events-auto min-h-[56px] ${statusTheme.chipBg}`}
                       >
                         <span className="text-[10px] text-zinc-400 font-medium">Duration</span>
                         <span className="text-base sm:text-lg font-bold text-white tracking-tight">+{mins}m</span>
@@ -656,15 +648,11 @@ export default function MeetingRoomKiosk() {
                   </div>
                   <button
                     type="button"
-                    onPointerDown={() => {
-                      setIsCheckedIn(true);
-                      setShowToast("✅ Check-in verified! Welcome.");
-                    }}
                     onClick={() => {
                       setIsCheckedIn(true);
                       setShowToast("✅ Check-in verified! Welcome.");
                     }}
-                    className="px-4 py-2 rounded-lg bg-amber-500 hover:bg-amber-400 text-zinc-950 font-bold text-xs shadow active:scale-95 transition-all cursor-pointer touch-manipulation min-h-[40px]"
+                    className="px-4 py-2 rounded-lg bg-amber-500 hover:bg-amber-400 text-zinc-950 font-bold text-xs shadow active:scale-95 transition-all cursor-pointer touch-manipulation pointer-events-auto min-h-[40px]"
                   >
                     {isCheckedIn ? "Checked In ✓" : "Check In Now"}
                   </button>
@@ -694,18 +682,16 @@ export default function MeetingRoomKiosk() {
               <>
                 <button
                   type="button"
-                  onPointerDown={() => setShowBookingModal(true)}
                   onClick={() => setShowBookingModal(true)}
-                  className={`flex-1 min-w-[170px] py-3 px-4 rounded-xl flex items-center justify-center gap-2 text-sm transition-all cursor-pointer touch-manipulation min-h-[46px] ${statusTheme.buttonBg}`}
+                  className={`flex-1 min-w-[170px] py-3 px-4 rounded-xl flex items-center justify-center gap-2 text-sm transition-all cursor-pointer touch-manipulation pointer-events-auto min-h-[46px] ${statusTheme.buttonBg}`}
                 >
                   <Calendar className="w-4 h-4" />
                   <span>Reserve Specific Time</span>
                 </button>
                 <button
                   type="button"
-                  onPointerDown={() => setShowNearbyModal(true)}
                   onClick={() => setShowNearbyModal(true)}
-                  className="py-3 px-4 rounded-xl bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 text-zinc-200 font-semibold text-xs flex items-center gap-1.5 transition-all active:scale-95 cursor-pointer touch-manipulation min-h-[46px]"
+                  className="py-3 px-4 rounded-xl bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 text-zinc-200 font-semibold text-xs flex items-center gap-1.5 transition-all active:scale-95 cursor-pointer touch-manipulation pointer-events-auto min-h-[46px]"
                 >
                   <Search className="w-3.5 h-3.5" />
                   <span>Other Rooms</span>
@@ -717,27 +703,24 @@ export default function MeetingRoomKiosk() {
               <>
                 <button
                   type="button"
-                  onPointerDown={() => setShowExtendModal(true)}
                   onClick={() => setShowExtendModal(true)}
-                  className="flex-1 py-2.5 px-3.5 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-white font-semibold text-xs flex items-center justify-center gap-1.5 border border-zinc-700 transition-all active:scale-95 cursor-pointer touch-manipulation min-h-[44px]"
+                  className="flex-1 py-2.5 px-3.5 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-white font-semibold text-xs flex items-center justify-center gap-1.5 border border-zinc-700 transition-all active:scale-95 cursor-pointer touch-manipulation pointer-events-auto min-h-[44px]"
                 >
                   <Plus className="w-3.5 h-3.5 text-emerald-400" />
                   <span>Extend (+15m)</span>
                 </button>
                 <button
                   type="button"
-                  onPointerDown={() => setShowEndModal(true)}
                   onClick={() => setShowEndModal(true)}
-                  className="py-2.5 px-3.5 rounded-xl bg-rose-500/20 hover:bg-rose-500/30 border border-rose-500/40 text-rose-300 font-semibold text-xs flex items-center gap-1.5 transition-all active:scale-95 cursor-pointer touch-manipulation min-h-[44px]"
+                  className="py-2.5 px-3.5 rounded-xl bg-rose-500/20 hover:bg-rose-500/30 border border-rose-500/40 text-rose-300 font-semibold text-xs flex items-center gap-1.5 transition-all active:scale-95 cursor-pointer touch-manipulation pointer-events-auto min-h-[44px]"
                 >
                   <X className="w-3.5 h-3.5" />
                   <span>End Early</span>
                 </button>
                 <button
                   type="button"
-                  onPointerDown={() => setShowNearbyModal(true)}
                   onClick={() => setShowNearbyModal(true)}
-                  className="py-2.5 px-3 rounded-xl bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 text-zinc-300 text-xs flex items-center gap-1 transition-all cursor-pointer touch-manipulation min-h-[44px]"
+                  className="py-2.5 px-3 rounded-xl bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 text-zinc-300 text-xs flex items-center gap-1 transition-all cursor-pointer touch-manipulation pointer-events-auto min-h-[44px]"
                   title="Find Nearby Rooms"
                 >
                   <Search className="w-3.5 h-3.5" />
@@ -750,18 +733,16 @@ export default function MeetingRoomKiosk() {
               <>
                 <button
                   type="button"
-                  onPointerDown={() => handleQuickBook(10)}
                   onClick={() => handleQuickBook(10)}
-                  className="flex-1 py-2.5 px-4 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-white font-semibold text-xs flex items-center justify-center gap-1.5 border border-zinc-700 transition-all active:scale-95 cursor-pointer touch-manipulation min-h-[44px]"
+                  className="flex-1 py-2.5 px-4 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-white font-semibold text-xs flex items-center justify-center gap-1.5 border border-zinc-700 transition-all active:scale-95 cursor-pointer touch-manipulation pointer-events-auto min-h-[44px]"
                 >
                   <Flame className="w-3.5 h-3.5 text-amber-400" />
                   <span>Quick 5-min Huddle</span>
                 </button>
                 <button
                   type="button"
-                  onPointerDown={() => setShowNearbyModal(true)}
                   onClick={() => setShowNearbyModal(true)}
-                  className="py-2.5 px-3.5 rounded-xl bg-amber-500/20 hover:bg-amber-500/30 border border-amber-500/40 text-amber-300 font-semibold text-xs flex items-center gap-1.5 transition-all active:scale-95 cursor-pointer touch-manipulation min-h-[44px]"
+                  className="py-2.5 px-3.5 rounded-xl bg-amber-500/20 hover:bg-amber-500/30 border border-amber-500/40 text-amber-300 font-semibold text-xs flex items-center gap-1.5 transition-all active:scale-95 cursor-pointer touch-manipulation pointer-events-auto min-h-[44px]"
                 >
                   <Search className="w-3.5 h-3.5" />
                   <span>Find Free Room</span>
@@ -772,9 +753,8 @@ export default function MeetingRoomKiosk() {
             {roomStatus === "private" && (
               <button
                 type="button"
-                onPointerDown={() => handleSelectState("available")}
                 onClick={() => handleSelectState("available")}
-                className="w-full py-2.5 px-4 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-zinc-200 font-semibold text-xs flex items-center justify-center gap-2 border border-zinc-700 transition-all cursor-pointer touch-manipulation min-h-[44px]"
+                className="w-full py-2.5 px-4 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-zinc-200 font-semibold text-xs flex items-center justify-center gap-2 border border-zinc-700 transition-all cursor-pointer touch-manipulation pointer-events-auto min-h-[44px]"
               >
                 <span>Release Private Lock (Admin Override)</span>
               </button>
@@ -782,10 +762,10 @@ export default function MeetingRoomKiosk() {
           </div>
         </div>
 
-        {/* RIGHT COLUMN: SCHEDULE & AMENITIES (5 COLS) */}
+        {/* RIGHT COLUMN: SCHEDULE & AMENITIES */}
         <div className="lg:col-span-5 h-full flex flex-col gap-2 min-h-0 overflow-hidden">
           {/* Today's Schedule Card */}
-          <div className="bg-zinc-900/75 border border-zinc-800/90 backdrop-blur-2xl rounded-2xl p-3.5 shadow-lg flex-1 min-h-0 flex flex-col overflow-hidden">
+          <div className="bg-zinc-900/80 border border-zinc-800/90 backdrop-blur-2xl rounded-2xl p-3.5 shadow-lg flex-1 min-h-0 flex flex-col overflow-hidden">
             <div className="flex items-center justify-between pb-2 border-b border-zinc-800/80 shrink-0">
               <div className="flex items-center gap-1.5">
                 <Calendar className="w-3.5 h-3.5 text-zinc-400" />
@@ -852,9 +832,9 @@ export default function MeetingRoomKiosk() {
           {/* Bottom Amenities & QR Pass Bar */}
           <div className="shrink-0 grid grid-cols-2 gap-2">
             {/* Amenities */}
-            <div className="bg-zinc-900/75 border border-zinc-800/90 backdrop-blur-xl rounded-xl p-2.5 shadow flex flex-col justify-between">
+            <div className="bg-zinc-900/80 border border-zinc-800/90 backdrop-blur-xl rounded-xl p-2.5 shadow flex flex-col justify-between">
               <span className="text-[10px] font-bold text-zinc-400 uppercase tracking-wider flex items-center gap-1">
-                <SlidersHorizontal className="w-3 h-3 text-zinc-400" /> Equipment
+                <SlidersHorizontal className="w-3.5 h-3.5 text-zinc-400" /> Equipment
               </span>
               <div className="mt-1.5 flex flex-wrap gap-1">
                 {currentRoom.amenities.map((item, idx) => {
@@ -874,9 +854,8 @@ export default function MeetingRoomKiosk() {
 
             {/* QR Mobile Pass Widget */}
             <div
-              onPointerDown={() => setShowQrModal(true)}
               onClick={() => setShowQrModal(true)}
-              className="bg-gradient-to-br from-zinc-900/90 to-zinc-900/60 border border-zinc-800 hover:border-zinc-700 rounded-xl p-2.5 shadow flex items-center justify-between cursor-pointer active:scale-95 touch-manipulation group"
+              className="bg-gradient-to-br from-zinc-900/90 to-zinc-900/60 border border-zinc-800 hover:border-zinc-700 rounded-xl p-2.5 shadow flex items-center justify-between cursor-pointer active:scale-95 touch-manipulation pointer-events-auto group"
             >
               <div>
                 <span className="text-[10px] font-bold text-emerald-400 uppercase tracking-wider flex items-center gap-1">
@@ -893,11 +872,11 @@ export default function MeetingRoomKiosk() {
         </div>
       </div>
 
-      {/* ======================= BOTTOM BAR (SAFE AREA CLEARANCE) ======================= */}
+      {/* ======================= BOTTOM BAR ======================= */}
       <footer className="shrink-0 relative z-20 pt-2 pb-1 border-t border-zinc-800/80 flex items-center justify-between gap-2 text-xs text-zinc-400">
         <div className="text-[11px] text-zinc-400 flex items-center gap-1.5">
           <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
-          <span>Tap any mode button above (🟢 Free / 🔴 In Use / 🟡 Soon / 🔒 Private) to test states</span>
+          <span>Tap buttons in header (🟢 Free / 🔴 In Use / 🟡 Soon / 🔒 Private) to change state</span>
         </div>
 
         {/* Room Switcher Dropdown */}
@@ -912,7 +891,7 @@ export default function MeetingRoomKiosk() {
                 setShowToast(`📍 Display: ${r.name}`);
               }
             }}
-            className="bg-zinc-900 border border-zinc-700 rounded-lg px-2.5 py-1 text-xs font-semibold text-zinc-200 focus:outline-none focus:border-indigo-500 cursor-pointer touch-manipulation min-h-[36px]"
+            className="bg-zinc-900 border border-zinc-700 rounded-lg px-2.5 py-1 text-xs font-semibold text-zinc-200 focus:outline-none focus:border-indigo-500 cursor-pointer touch-manipulation pointer-events-auto min-h-[36px]"
           >
             {ROOMS.map((r) => (
               <option key={r.id} value={r.id}>
@@ -929,13 +908,12 @@ export default function MeetingRoomKiosk() {
 
       {/* 1. CUSTOM BOOKING MODAL */}
       {showBookingModal && (
-        <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-3 animate-in fade-in duration-150">
+        <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-3 animate-in fade-in duration-150 pointer-events-auto">
           <div className="w-full max-w-md bg-zinc-900 border border-zinc-700/80 rounded-2xl p-5 md:p-6 shadow-2xl relative">
             <button
               type="button"
-              onPointerDown={() => setShowBookingModal(false)}
               onClick={() => setShowBookingModal(false)}
-              className="absolute top-4 right-4 p-2 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-400 hover:text-white transition-all cursor-pointer touch-manipulation"
+              className="absolute top-4 right-4 p-2 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-400 hover:text-white transition-all cursor-pointer touch-manipulation pointer-events-auto"
             >
               <X className="w-4 h-4" />
             </button>
@@ -961,7 +939,7 @@ export default function MeetingRoomKiosk() {
                   value={bookingTitle}
                   onChange={(e) => setBookingTitle(e.target.value)}
                   placeholder="e.g. Design Review, Client Call"
-                  className="w-full px-3.5 py-2.5 rounded-lg bg-zinc-950 border border-zinc-700 text-white placeholder-zinc-500 focus:outline-none focus:border-emerald-500 text-xs font-medium"
+                  className="w-full px-3.5 py-2.5 rounded-lg bg-zinc-950 border border-zinc-700 text-white placeholder-zinc-500 focus:outline-none focus:border-emerald-500 text-xs font-medium pointer-events-auto"
                 />
               </div>
 
@@ -975,7 +953,7 @@ export default function MeetingRoomKiosk() {
                   value={bookingHost}
                   onChange={(e) => setBookingHost(e.target.value)}
                   placeholder="Your Name"
-                  className="w-full px-3.5 py-2.5 rounded-lg bg-zinc-950 border border-zinc-700 text-white placeholder-zinc-500 focus:outline-none focus:border-emerald-500 text-xs font-medium"
+                  className="w-full px-3.5 py-2.5 rounded-lg bg-zinc-950 border border-zinc-700 text-white placeholder-zinc-500 focus:outline-none focus:border-emerald-500 text-xs font-medium pointer-events-auto"
                 />
               </div>
 
@@ -988,9 +966,8 @@ export default function MeetingRoomKiosk() {
                     <button
                       type="button"
                       key={d}
-                      onPointerDown={() => setBookingDuration(d)}
                       onClick={() => setBookingDuration(d)}
-                      className={`py-2 rounded-lg text-xs font-bold border transition-all cursor-pointer touch-manipulation min-h-[38px] ${
+                      className={`py-2 rounded-lg text-xs font-bold border transition-all cursor-pointer touch-manipulation pointer-events-auto min-h-[38px] ${
                         bookingDuration === d
                           ? "bg-emerald-500 text-zinc-950 border-emerald-400 shadow"
                           : "bg-zinc-950 border-zinc-800 text-zinc-300 hover:bg-zinc-800"
@@ -1011,22 +988,21 @@ export default function MeetingRoomKiosk() {
                   type="checkbox"
                   checked={isBookingPrivate}
                   onChange={(e) => setIsBookingPrivate(e.target.checked)}
-                  className="w-4 h-4 accent-purple-500 rounded cursor-pointer"
+                  className="w-4 h-4 accent-purple-500 rounded cursor-pointer pointer-events-auto"
                 />
               </div>
 
               <div className="pt-1 flex gap-2">
                 <button
                   type="button"
-                  onPointerDown={() => setShowBookingModal(false)}
                   onClick={() => setShowBookingModal(false)}
-                  className="flex-1 py-2.5 px-3 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-300 font-semibold text-xs transition-all cursor-pointer touch-manipulation min-h-[42px]"
+                  className="flex-1 py-2.5 px-3 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-300 font-semibold text-xs transition-all cursor-pointer touch-manipulation pointer-events-auto min-h-[42px]"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="flex-1 py-2.5 px-3 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-zinc-950 font-bold text-xs shadow active:scale-95 transition-all cursor-pointer touch-manipulation min-h-[42px]"
+                  className="flex-1 py-2.5 px-3 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-zinc-950 font-bold text-xs shadow active:scale-95 transition-all cursor-pointer touch-manipulation pointer-events-auto min-h-[42px]"
                 >
                   Confirm & Lock Room
                 </button>
@@ -1038,13 +1014,12 @@ export default function MeetingRoomKiosk() {
 
       {/* 2. FIND NEARBY ROOMS MODAL */}
       {showNearbyModal && (
-        <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-3 animate-in fade-in duration-150">
+        <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-3 animate-in fade-in duration-150 pointer-events-auto">
           <div className="w-full max-w-lg bg-zinc-900 border border-zinc-700/80 rounded-2xl p-5 md:p-6 shadow-2xl relative">
             <button
               type="button"
-              onPointerDown={() => setShowNearbyModal(false)}
               onClick={() => setShowNearbyModal(false)}
-              className="absolute top-4 right-4 p-2 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-400 hover:text-white transition-all cursor-pointer touch-manipulation"
+              className="absolute top-4 right-4 p-2 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-400 hover:text-white transition-all cursor-pointer touch-manipulation pointer-events-auto"
             >
               <X className="w-4 h-4" />
             </button>
@@ -1092,19 +1067,13 @@ export default function MeetingRoomKiosk() {
 
                     <button
                       type="button"
-                      onPointerDown={() => {
-                        setCurrentRoom(r);
-                        setRoomStatus("available");
-                        setShowNearbyModal(false);
-                        setShowToast(`🎯 Display: ${r.name}`);
-                      }}
                       onClick={() => {
                         setCurrentRoom(r);
                         setRoomStatus("available");
                         setShowNearbyModal(false);
                         setShowToast(`🎯 Display: ${r.name}`);
                       }}
-                      className="px-3.5 py-2 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-white font-semibold text-xs transition-all active:scale-95 cursor-pointer touch-manipulation min-h-[38px]"
+                      className="px-3.5 py-2 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-white font-semibold text-xs transition-all active:scale-95 cursor-pointer touch-manipulation pointer-events-auto min-h-[38px]"
                     >
                       {isSelected ? "Current" : "Switch Room →"}
                     </button>
@@ -1118,13 +1087,12 @@ export default function MeetingRoomKiosk() {
 
       {/* 3. MOBILE COMPANION QR MODAL */}
       {showQrModal && (
-        <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-3 animate-in fade-in duration-150">
+        <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-3 animate-in fade-in duration-150 pointer-events-auto">
           <div className="w-full max-w-xs bg-zinc-900 border border-zinc-700/80 rounded-2xl p-5 text-center shadow-2xl relative">
             <button
               type="button"
-              onPointerDown={() => setShowQrModal(false)}
               onClick={() => setShowQrModal(false)}
-              className="absolute top-4 right-4 p-2 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-400 hover:text-white transition-all cursor-pointer touch-manipulation"
+              className="absolute top-4 right-4 p-2 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-400 hover:text-white transition-all cursor-pointer touch-manipulation pointer-events-auto"
             >
               <X className="w-4 h-4" />
             </button>
@@ -1176,7 +1144,7 @@ export default function MeetingRoomKiosk() {
 
       {/* 4. END EARLY MODAL */}
       {showEndModal && (
-        <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-3 animate-in fade-in duration-150">
+        <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-3 animate-in fade-in duration-150 pointer-events-auto">
           <div className="w-full max-w-xs bg-zinc-900 border border-zinc-700/80 rounded-2xl p-5 text-center shadow-2xl relative">
             <div className="w-10 h-10 rounded-xl bg-rose-500/20 border border-rose-500/40 mx-auto flex items-center justify-center text-rose-400">
               <AlertCircle className="w-5 h-5" />
@@ -1190,17 +1158,15 @@ export default function MeetingRoomKiosk() {
             <div className="mt-4 flex gap-2">
               <button
                 type="button"
-                onPointerDown={() => setShowEndModal(false)}
                 onClick={() => setShowEndModal(false)}
-                className="flex-1 py-2.5 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-300 font-semibold text-xs transition-all cursor-pointer touch-manipulation min-h-[40px]"
+                className="flex-1 py-2.5 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-300 font-semibold text-xs transition-all cursor-pointer touch-manipulation pointer-events-auto min-h-[40px]"
               >
                 Keep Room
               </button>
               <button
                 type="button"
-                onPointerDown={handleEndMeetingEarly}
                 onClick={handleEndMeetingEarly}
-                className="flex-1 py-2.5 rounded-lg bg-rose-600 hover:bg-rose-500 text-white font-bold text-xs shadow active:scale-95 transition-all cursor-pointer touch-manipulation min-h-[40px]"
+                className="flex-1 py-2.5 rounded-lg bg-rose-600 hover:bg-rose-500 text-white font-bold text-xs shadow active:scale-95 transition-all cursor-pointer touch-manipulation pointer-events-auto min-h-[40px]"
               >
                 Yes, End Now
               </button>
@@ -1211,13 +1177,12 @@ export default function MeetingRoomKiosk() {
 
       {/* 5. EXTEND MEETING MODAL */}
       {showExtendModal && (
-        <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-3 animate-in fade-in duration-150">
+        <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-3 animate-in fade-in duration-150 pointer-events-auto">
           <div className="w-full max-w-xs bg-zinc-900 border border-zinc-700/80 rounded-2xl p-5 shadow-2xl relative">
             <button
               type="button"
-              onPointerDown={() => setShowExtendModal(false)}
               onClick={() => setShowExtendModal(false)}
-              className="absolute top-4 right-4 p-2 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-400 hover:text-white transition-all cursor-pointer touch-manipulation"
+              className="absolute top-4 right-4 p-2 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-400 hover:text-white transition-all cursor-pointer touch-manipulation pointer-events-auto"
             >
               <X className="w-4 h-4" />
             </button>
@@ -1236,9 +1201,8 @@ export default function MeetingRoomKiosk() {
                 <button
                   type="button"
                   key={m}
-                  onPointerDown={() => handleExtendMeeting(m)}
                   onClick={() => handleExtendMeeting(m)}
-                  className="py-3 px-3 rounded-lg bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 text-white font-bold text-xs transition-all active:scale-95 cursor-pointer touch-manipulation min-h-[44px]"
+                  className="py-3 px-3 rounded-lg bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 text-white font-bold text-xs transition-all active:scale-95 cursor-pointer touch-manipulation pointer-events-auto min-h-[44px]"
                 >
                   +{m} Mins
                 </button>
@@ -1247,9 +1211,8 @@ export default function MeetingRoomKiosk() {
 
             <button
               type="button"
-              onPointerDown={() => setShowExtendModal(false)}
               onClick={() => setShowExtendModal(false)}
-              className="w-full py-2.5 rounded-lg bg-zinc-950 border border-zinc-800 text-zinc-400 hover:text-white text-[11px] font-semibold cursor-pointer touch-manipulation"
+              className="w-full py-2.5 rounded-lg bg-zinc-950 border border-zinc-800 text-zinc-400 hover:text-white text-[11px] font-semibold cursor-pointer touch-manipulation pointer-events-auto"
             >
               Cancel
             </button>

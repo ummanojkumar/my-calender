@@ -125,14 +125,13 @@
     @apply bg-background text-foreground font-sans;
     touch-action: manipulation;
     -webkit-tap-highlight-color: transparent;
-    user-select: none;
-    -webkit-user-select: none;
   }
   button, a, select, input {
     touch-action: manipulation;
     -webkit-tap-highlight-color: transparent;
   }
 }
+
 
 @keyframes pulse-slow {
   0%, 100% {
