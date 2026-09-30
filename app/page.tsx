@@ -122,7 +122,7 @@ const INITIAL_SCHEDULE: Meeting[] = [
   },
   {
     id: "m-2",
-    title: "Product Strategy & Roadmap Sync",
+    title: "Product Strategy & Architecture Review",
     host: "Manoj Kumar",
     hostRole: "Head of Product",
     startTime: "10:30",
@@ -318,12 +318,12 @@ export default function MeetingRoomKiosk() {
     attendeesCount: 8,
   };
 
-  // Theme styling based on roomStatus
+  // Theme styling based on roomStatus (Refined True Crimson/Ruby Red Family)
   const statusTheme = {
     available: {
       bgGlow: "from-emerald-950/40 via-zinc-950 to-zinc-950",
       accent: "text-emerald-400",
-      badgeBg: "bg-emerald-500/25 border-emerald-500/60 text-emerald-300 shadow-[0_0_15px_rgba(16,185,129,0.3)]",
+      badgeBg: "bg-emerald-500/20 border-emerald-500/60 text-emerald-300 shadow-[0_0_18px_rgba(16,185,129,0.3)]",
       rimGlow: "shadow-[0_0_80px_rgba(16,185,129,0.15)]",
       buttonBg: "bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 text-zinc-950 font-bold shadow-[0_0_25px_rgba(16,185,129,0.35)]",
       chipBg: "bg-emerald-950/60 hover:bg-emerald-900 border-emerald-500/40 text-emerald-200",
@@ -331,19 +331,19 @@ export default function MeetingRoomKiosk() {
       indicatorDot: "bg-emerald-400 shadow-[0_0_12px_rgba(52,211,153,1)]",
     },
     occupied: {
-      bgGlow: "from-rose-950/50 via-zinc-950 to-zinc-950",
-      accent: "text-rose-400",
-      badgeBg: "bg-rose-500/25 border-rose-500/60 text-rose-300 shadow-[0_0_15px_rgba(244,63,94,0.3)]",
-      rimGlow: "shadow-[0_0_80px_rgba(244,63,94,0.15)]",
-      buttonBg: "bg-gradient-to-r from-rose-500 to-rose-600 hover:from-rose-400 text-white font-bold shadow-[0_0_25px_rgba(244,63,94,0.35)]",
-      chipBg: "bg-rose-950/60 hover:bg-rose-900 border-rose-500/40 text-rose-200",
+      bgGlow: "from-[#450a0a] via-zinc-950 to-zinc-950",
+      accent: "text-red-400",
+      badgeBg: "bg-red-600/25 border-red-500/70 text-red-200 shadow-[0_0_22px_rgba(239,68,68,0.45)]",
+      rimGlow: "shadow-[0_0_90px_rgba(220,38,38,0.25)]",
+      buttonBg: "bg-gradient-to-r from-red-600 via-red-500 to-red-600 hover:from-red-500 text-white font-bold shadow-[0_0_30px_rgba(239,68,68,0.55)]",
+      chipBg: "bg-red-950/80 hover:bg-red-900/90 border-red-500/50 text-red-200",
       title: "ROOM IN USE",
-      indicatorDot: "bg-rose-500 shadow-[0_0_12px_rgba(244,63,94,1)]",
+      indicatorDot: "bg-red-500 shadow-[0_0_16px_rgba(239,68,68,1)]",
     },
     starting_soon: {
       bgGlow: "from-amber-950/45 via-zinc-950 to-zinc-950",
       accent: "text-amber-400",
-      badgeBg: "bg-amber-500/25 border-amber-500/60 text-amber-300 shadow-[0_0_15px_rgba(245,158,11,0.3)]",
+      badgeBg: "bg-amber-500/20 border-amber-500/60 text-amber-300 shadow-[0_0_18px_rgba(245,158,11,0.3)]",
       rimGlow: "shadow-[0_0_80px_rgba(245,158,11,0.15)]",
       buttonBg: "bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 text-zinc-950 font-bold shadow-[0_0_25px_rgba(245,158,11,0.35)]",
       chipBg: "bg-amber-950/60 hover:bg-amber-900 border-amber-500/40 text-amber-200",
@@ -353,7 +353,7 @@ export default function MeetingRoomKiosk() {
     private: {
       bgGlow: "from-purple-950/45 via-zinc-950 to-zinc-950",
       accent: "text-purple-400",
-      badgeBg: "bg-purple-500/25 border-purple-500/60 text-purple-300 shadow-[0_0_15px_rgba(168,85,247,0.3)]",
+      badgeBg: "bg-purple-500/20 border-purple-500/60 text-purple-300 shadow-[0_0_18px_rgba(168,85,247,0.3)]",
       rimGlow: "shadow-[0_0_80px_rgba(168,85,247,0.15)]",
       buttonBg: "bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-400 text-white font-bold shadow-[0_0_25px_rgba(168,85,247,0.35)]",
       chipBg: "bg-purple-950/60 hover:bg-purple-900 border-purple-500/40 text-purple-200",
@@ -381,7 +381,7 @@ export default function MeetingRoomKiosk() {
           roomStatus === "available"
             ? "bg-emerald-500 shadow-[0_0_18px_rgba(16,185,129,0.9)]"
             : roomStatus === "occupied"
-            ? "bg-rose-500 shadow-[0_0_18px_rgba(244,63,94,0.9)]"
+            ? "bg-red-600 shadow-[0_0_20px_rgba(239,68,68,1)]"
             : roomStatus === "starting_soon"
             ? "bg-amber-500 shadow-[0_0_18px_rgba(245,158,11,0.9)]"
             : "bg-purple-500 shadow-[0_0_18px_rgba(168,85,247,0.9)]"
@@ -435,7 +435,7 @@ export default function MeetingRoomKiosk() {
           </div>
         </div>
 
-        {/* PROMINENT DEMO STATE SWITCHER PILLS (DIRECT POINTER / CLICK HANDLERS) */}
+        {/* PROMINENT DEMO STATE SWITCHER PILLS */}
         <div className="flex items-center gap-1.5 bg-zinc-900 p-1.5 rounded-2xl border border-zinc-700 shadow-xl pointer-events-auto z-40">
           <button
             type="button"
@@ -453,7 +453,7 @@ export default function MeetingRoomKiosk() {
             onClick={() => handleSelectState("occupied")}
             className={`px-3.5 py-2 rounded-xl font-bold text-xs transition-all cursor-pointer touch-manipulation pointer-events-auto min-h-[44px] flex items-center gap-1 ${
               roomStatus === "occupied"
-                ? "bg-rose-500 text-white shadow-md font-extrabold"
+                ? "bg-red-600 text-white shadow-lg shadow-red-950 font-extrabold"
                 : "text-zinc-300 hover:text-white hover:bg-zinc-800"
             }`}
           >
@@ -491,7 +491,6 @@ export default function MeetingRoomKiosk() {
             </div>
             <div className="text-[10px] font-medium text-zinc-400 mt-0.5">{dateFormatted}</div>
           </div>
-
 
           <div className="flex items-center gap-1.5">
             <button
@@ -538,8 +537,8 @@ export default function MeetingRoomKiosk() {
               </button>
 
               {roomStatus === "occupied" && (
-                <span className="text-xs font-semibold text-rose-400 flex items-center gap-1 bg-rose-950/50 px-3 py-1 rounded-full border border-rose-500/30">
-                  <Clock className="w-3.5 h-3.5 animate-spin-slow" /> Ends in 38 mins (11:30 AM)
+                <span className="text-xs font-bold text-red-300 flex items-center gap-1.5 bg-red-950/70 px-3.5 py-1 rounded-full border border-red-500/40">
+                  <Clock className="w-3.5 h-3.5 text-red-400 animate-spin-slow" /> Ends in 38 mins (11:30 AM)
                 </span>
               )}
 
@@ -584,16 +583,16 @@ export default function MeetingRoomKiosk() {
 
             {roomStatus === "occupied" && (
               <div className="my-auto py-1">
-                <span className="text-[11px] font-semibold uppercase tracking-wider text-rose-400">
-                  Current Session
+                <span className="text-[11px] font-bold uppercase tracking-wider text-red-400 flex items-center gap-1">
+                  <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" /> Active In-Person Meeting
                 </span>
                 <h2 className="text-xl sm:text-2xl font-extrabold text-white tracking-tight mt-0.5">
                   {currentMeeting.title}
                 </h2>
 
-                <div className="mt-2.5 flex flex-wrap items-center gap-3 text-xs text-zinc-300 bg-zinc-950/60 p-3 rounded-xl border border-zinc-800">
+                <div className="mt-2.5 flex flex-wrap items-center gap-3 text-xs text-zinc-200 bg-red-950/40 p-3 rounded-xl border border-red-800/50">
                   <div className="flex items-center gap-2">
-                    <div className="w-7 h-7 rounded-full bg-gradient-to-br from-rose-500 to-amber-500 flex items-center justify-center font-bold text-white text-xs shadow">
+                    <div className="w-7 h-7 rounded-full bg-gradient-to-br from-red-500 to-red-700 flex items-center justify-center font-bold text-white text-xs shadow-md">
                       {currentMeeting.host.split(" ").map((n) => n[0]).join("")}
                     </div>
                     <div>
@@ -601,24 +600,24 @@ export default function MeetingRoomKiosk() {
                       <div className="text-[10px] text-zinc-400">{currentMeeting.hostRole}</div>
                     </div>
                   </div>
-                  <div className="h-4 w-px bg-zinc-700 hidden sm:block" />
+                  <div className="h-4 w-px bg-red-800/60 hidden sm:block" />
                   <div className="flex items-center gap-1 text-zinc-300">
-                    <Users className="w-3.5 h-3.5 text-rose-400" /> {currentMeeting.attendeesCount} People
+                    <Users className="w-3.5 h-3.5 text-red-400" /> {currentMeeting.attendeesCount} People
                   </div>
-                  <div className="h-4 w-px bg-zinc-700 hidden sm:block" />
+                  <div className="h-4 w-px bg-red-800/60 hidden sm:block" />
                   <div className="flex items-center gap-1 text-zinc-300">
-                    <Clock className="w-3.5 h-3.5 text-rose-400" /> {currentMeeting.startTime} – {currentMeeting.endTime}
+                    <Clock className="w-3.5 h-3.5 text-red-400" /> {currentMeeting.startTime} – {currentMeeting.endTime}
                   </div>
                 </div>
 
-                {/* Progress bar */}
+                {/* Progress bar (Rich Red Gradient) */}
                 <div className="mt-2.5">
-                  <div className="flex justify-between text-[11px] font-medium text-zinc-400 mb-1">
+                  <div className="flex justify-between text-[11px] font-medium text-zinc-300 mb-1">
                     <span>Progress (62% Elapsed)</span>
-                    <span className="text-rose-400 font-bold">22m remaining</span>
+                    <span className="text-red-400 font-bold">22m remaining</span>
                   </div>
-                  <div className="h-2 w-full bg-zinc-800 rounded-full overflow-hidden">
-                    <div className="h-full bg-gradient-to-r from-rose-500 to-amber-500 rounded-full w-[62%] transition-all duration-500" />
+                  <div className="h-2.5 w-full bg-zinc-900 border border-zinc-800 rounded-full overflow-hidden">
+                    <div className="h-full bg-gradient-to-r from-red-600 via-red-500 to-red-400 rounded-full w-[62%] transition-all duration-500 shadow-[0_0_10px_rgba(239,68,68,0.8)]" />
                   </div>
                 </div>
               </div>
@@ -706,15 +705,15 @@ export default function MeetingRoomKiosk() {
                   onClick={() => setShowExtendModal(true)}
                   className="flex-1 py-2.5 px-3.5 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-white font-semibold text-xs flex items-center justify-center gap-1.5 border border-zinc-700 transition-all active:scale-95 cursor-pointer touch-manipulation pointer-events-auto min-h-[44px]"
                 >
-                  <Plus className="w-3.5 h-3.5 text-emerald-400" />
+                  <Plus className="w-3.5 h-3.5 text-red-400" />
                   <span>Extend (+15m)</span>
                 </button>
                 <button
                   type="button"
                   onClick={() => setShowEndModal(true)}
-                  className="py-2.5 px-3.5 rounded-xl bg-rose-500/20 hover:bg-rose-500/30 border border-rose-500/40 text-rose-300 font-semibold text-xs flex items-center gap-1.5 transition-all active:scale-95 cursor-pointer touch-manipulation pointer-events-auto min-h-[44px]"
+                  className="py-2.5 px-3.5 rounded-xl bg-red-600/30 hover:bg-red-600/40 border border-red-500/50 text-red-200 font-bold text-xs flex items-center gap-1.5 transition-all active:scale-95 cursor-pointer touch-manipulation pointer-events-auto min-h-[44px]"
                 >
-                  <X className="w-3.5 h-3.5" />
+                  <X className="w-3.5 h-3.5 text-red-400" />
                   <span>End Early</span>
                 </button>
                 <button
@@ -786,7 +785,7 @@ export default function MeetingRoomKiosk() {
                     key={meeting.id}
                     className={`p-2.5 rounded-xl border transition-all duration-150 relative ${
                       isCurrent
-                        ? "bg-rose-950/40 border-rose-500/40 shadow-sm"
+                        ? "bg-red-950/50 border-red-500/50 shadow-sm"
                         : isCompleted
                         ? "bg-zinc-950/30 border-zinc-900/80 opacity-50"
                         : "bg-zinc-950/60 border-zinc-800/70 hover:border-zinc-700"
@@ -795,7 +794,7 @@ export default function MeetingRoomKiosk() {
                     <div className="flex items-center justify-between text-[11px]">
                       <span
                         className={`font-mono font-semibold ${
-                          isCurrent ? "text-rose-400 font-bold" : "text-zinc-400"
+                          isCurrent ? "text-red-400 font-bold" : "text-zinc-400"
                         }`}
                       >
                         {meeting.startTime} – {meeting.endTime}
@@ -803,7 +802,7 @@ export default function MeetingRoomKiosk() {
                       <span
                         className={`px-1.5 py-0.5 rounded text-[9px] font-bold uppercase tracking-wider ${
                           isCurrent
-                            ? "bg-rose-500/20 text-rose-300 border border-rose-500/30"
+                            ? "bg-red-600/30 text-red-200 border border-red-500/40"
                             : isCompleted
                             ? "bg-zinc-800 text-zinc-500"
                             : "bg-zinc-800 text-zinc-300"
@@ -834,7 +833,7 @@ export default function MeetingRoomKiosk() {
             {/* Amenities */}
             <div className="bg-zinc-900/80 border border-zinc-800/90 backdrop-blur-xl rounded-xl p-2.5 shadow flex flex-col justify-between">
               <span className="text-[10px] font-bold text-zinc-400 uppercase tracking-wider flex items-center gap-1">
-                <SlidersHorizontal className="w-3.5 h-3.5 text-zinc-400" /> Equipment
+                <SlidersHorizontal className="w-3 h-3 text-zinc-400" /> Equipment
               </span>
               <div className="mt-1.5 flex flex-wrap gap-1">
                 {currentRoom.amenities.map((item, idx) => {
@@ -1146,7 +1145,7 @@ export default function MeetingRoomKiosk() {
       {showEndModal && (
         <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-3 animate-in fade-in duration-150 pointer-events-auto">
           <div className="w-full max-w-xs bg-zinc-900 border border-zinc-700/80 rounded-2xl p-5 text-center shadow-2xl relative">
-            <div className="w-10 h-10 rounded-xl bg-rose-500/20 border border-rose-500/40 mx-auto flex items-center justify-center text-rose-400">
+            <div className="w-10 h-10 rounded-xl bg-red-600/20 border border-red-500/40 mx-auto flex items-center justify-center text-red-400">
               <AlertCircle className="w-5 h-5" />
             </div>
 
@@ -1166,7 +1165,7 @@ export default function MeetingRoomKiosk() {
               <button
                 type="button"
                 onClick={handleEndMeetingEarly}
-                className="flex-1 py-2.5 rounded-lg bg-rose-600 hover:bg-rose-500 text-white font-bold text-xs shadow active:scale-95 transition-all cursor-pointer touch-manipulation pointer-events-auto min-h-[40px]"
+                className="flex-1 py-2.5 rounded-lg bg-red-600 hover:bg-red-500 text-white font-bold text-xs shadow active:scale-95 transition-all cursor-pointer touch-manipulation pointer-events-auto min-h-[40px]"
               >
                 Yes, End Now
               </button>
@@ -1187,7 +1186,7 @@ export default function MeetingRoomKiosk() {
               <X className="w-4 h-4" />
             </button>
 
-            <div className="w-10 h-10 rounded-xl bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400">
+            <div className="w-10 h-10 rounded-xl bg-red-600/20 border border-red-500/40 flex items-center justify-center text-red-400">
               <Plus className="w-4 h-4" />
             </div>
 
