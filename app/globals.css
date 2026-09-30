@@ -121,11 +121,16 @@
   * {
     @apply border-border outline-ring/50;
   }
-  body {
-    @apply bg-background text-foreground;
+  html, body {
+    @apply bg-background text-foreground font-sans;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    -webkit-user-select: none;
   }
-  html {
-    @apply font-sans;
+  button, a, select, input {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
   }
 }
 

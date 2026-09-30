@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -17,6 +17,16 @@ export const metadata: Metadata = {
   description: "Enterprise tablet display for instant meeting room booking and schedule management",
 };
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+  viewportFit: "cover",
+  themeColor: "#09090b",
+};
+
+
 export default function RootLayout({
   children,
 }: {
@@ -25,12 +35,13 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased dark`}
+      className={`${geistSans.variable} ${geistMono.variable} h-full w-full antialiased dark overflow-hidden`}
     >
-      <body className="min-h-full flex flex-col bg-zinc-950 text-zinc-100 selection:bg-emerald-500/30 selection:text-emerald-200 overflow-x-hidden">
+      <body className="h-full w-full flex flex-col bg-zinc-950 text-zinc-100 selection:bg-emerald-500/30 selection:text-emerald-200 overflow-hidden">
         {children}
       </body>
     </html>
   );
 }
+
 
