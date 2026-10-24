@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "SphereRoom | Intelligent Meeting Display & Room Kiosk",
+  title: "Meeting Room | Intelligent Meeting Display & Room Kiosk",
   description: "Enterprise tablet display for instant meeting room booking and schedule management",
 };
 
